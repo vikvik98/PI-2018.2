@@ -19,4 +19,4 @@ Vinicius Tomaz Oliveira Costas Mascarenhas.
 Desejo continuar com o crescimento acadêmico após a conclusão do curso e em paralelo com isso trabalhar na área de desenvolvimento de games dentro ou fora do Brasil.
 
 ### Expectativas para a disciplina:
-Aprender como esse universo de desenvolvimento para web/internet funciona.
+Aprender como esse universo de desenvolvimento para web/internet.

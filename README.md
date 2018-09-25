@@ -12,6 +12,8 @@ Vinicius Tomaz Oliveira Costas Mascarenhas.
 * Java.
 * Desenvolvimento para android.
 * C/C++.
+* SQL.
+* Firebase
 
 ### Interesses acadêmicos e profissionais:
 Desejo continuar com o crescimento acadêmico após a conclusão do curso e em paralelo com isso trabalhar na área de desenvolvimento de games dentro ou fora do Brasil.

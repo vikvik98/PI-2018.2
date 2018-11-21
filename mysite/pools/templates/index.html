@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-vindo</title>
+</head>
+<body>
+    <h1 align="center">Bem-vindo</h1>
+    <ol>
+    	{% for question in questions %}
+    	<li><a href="{% url 'exibir' question.id %}">{{question.question_text}} </a></li></li>
+    	{% endfor %}
+    </ol>
+</body>
+</html>

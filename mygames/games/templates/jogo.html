@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block body %}
-<h1 align="center">{{jogo.nome}} </h1>
 
-<h2>Desenvolvedora: {{desenvolvedora.nome_desenvolvedora}}</h2>
-
-<h2>Publicadora: {{publicadora.nome_publicadora}}</h2>
-
-<a href="{% url 'carrinho' %}"></a><button>Comprar</button>
-<button>Editar</button>
-<button>Excluir</button>
+<div class="container pb-3">
+    <div class="row">
+        <div class="col-sm-4">
+            <a href="#"><img class="card-img-top" src="http://placehold.it//350x350" alt=""></a>
+        </div>
+        <div class="col-sm-8">
+            <h1> {{jogo.nome}} </h1>
+            <h2>R$ {{jogo.preco}}</h2>
+            <h6>Desenvolvedora: {{desenvolvedora.nome_desenvolvedora}}</h6>
+            <h6>Publicadora: {{publicadora.nome_publicadora}}</h6>
+            
+            <button class="btn btn-success">Comprar</button>
+            <button class="btn btn-warning">Editar</button>
+            <button class="btn btn-danger">Excluir</button>
+        </div>
+    </div>
+</div>
 {% endblock %}

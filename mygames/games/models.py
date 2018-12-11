@@ -24,6 +24,3 @@ class Jogo(models.Model):
 class Carrinho(models.Model):
     finalizado = models.BooleanField(default=False)
     jogos_carrinho = models.ManyToManyField(Jogo)
-
-
-

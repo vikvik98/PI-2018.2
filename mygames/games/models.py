@@ -13,6 +13,8 @@ class Publicadora(models.Model):
 
 class Jogo(models.Model):
     nome = models.CharField(max_length=100)
+    preco = models.FloatField(default=0)
+    quant_estoque = models.IntegerField(default=0)
     desenvolvedoras = models.ManyToManyField(Desenvolvedora, through='Desenvolvimento_jogo')
     publicadoras = models.ManyToManyField(Publicadora, through='Publicacao_jogo')
 
@@ -29,3 +31,7 @@ class Publicacao_jogo(models.Model):
     publicadora = models.ForeignKey(Publicadora, on_delete=models.CASCADE)
     jogo = models.ForeignKey(Jogo, on_delete=models.CASCADE)
     data_publicacao = models.DateField()
+
+
+class Carrinho:
+    pass

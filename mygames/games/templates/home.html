@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 {% block body %}
 
+<div class="dropdown mb-4 d-flex w-100 justify-content-center">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Filtro
+    </button>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'filtro_mais_caro' %}">Mais Caro</a>
+        <a class="dropdown-item" href="{% url 'filtro_mais_barato' %}">Mais Barato</a>
+        <a class="dropdown-item" href="{% url 'filtro_alfabetico' %}">A-Z</a>
+    </div>
+</div>
+
 <div class="col-lg-12">
     <div class="row">
         {% for jogo in jogos %}
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 mb-3">
             <div class="card h-100">
                 <a href="#"><img class="card-img-top" src="http://placehold.it//350x350" alt=""></a>
                 <div class="card-body">

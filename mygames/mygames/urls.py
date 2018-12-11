@@ -31,8 +31,9 @@ urlpatterns = [
     path('finalizar_compra', views.finalizar_compra, name = 'finalizar_compra'),
     path('meus_jogos', views.meus_jogos, name='meus_jogos'),
 
-
-    path('carrinho/', views.carrinho, name='carrinho'),
-    path('remover_jogo/<int:jogo_id>', views.remover_jogo, name='remover_jogo')
+    path('remover_jogo/<int:jogo_id>', views.remover_jogo, name='remover_jogo'),
+    path('filtro/mais_caro', views.filtro_mais_caro, name='filtro_mais_caro'),
+    path('filtro/mais_barato', views.filtro_mais_barato, name='filtro_mais_barato'),
+    path('filtro/alfabetico', views.filtro_alfabetico, name='filtro_alfabetico')
 
 ]

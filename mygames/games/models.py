@@ -1,19 +1,24 @@
 from django.db import models
 
-class Jogo(models.Model):
-    nome = models.CharField(max_length=100)
-    preco = models.FloatField(default=0)
-    quant_estoque = models.IntegerField(default=0)
 
 class Desenvolvedora(models.Model):
-    nome = models.CharField(max_length=100)
-    jogo = models.ForeignKey(Jogo,on_delete=models.CASCADE, related_name='desenvolvedoras')
+    nome_desenvolvedora = models.CharField(max_length=100)
+
 
 
 
 class Publicadora(models.Model):
+    nome_publicadora = models.CharField(max_length=100)
+
+
+
+class Jogo(models.Model):
     nome = models.CharField(max_length=100)
-    jogo = models.ForeignKey(Jogo, on_delete=models.CASCADE, related_name='publicadoras')
+    preco = models.FloatField(default=0)
+    descricao = models.TextField(default="Miau")
+    quant_estoque = models.IntegerField(default=0)
+    desenvolvedora = models.ForeignKey(Desenvolvedora, on_delete=models.CASCADE, related_name='jogos')
+    publicadora = models.ForeignKey(Publicadora, on_delete=models.CASCADE, related_name='jogos')
 
 
 class Carrinho(models.Model):

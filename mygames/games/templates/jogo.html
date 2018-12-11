@@ -15,7 +15,9 @@
             <a href="{% url 'add_carrinho' jogo.id %}">
                 <button class="btn btn-success">Comprar</button>
             </a>
-             <button class="btn btn-warning">Editar</button>
+            <a href="{% url 'editar_jogo' jogo.id %}">
+                    <button class="btn btn-warning">Editar</button>
+            </a>
             <a href="{% url 'remover_jogo' jogo.id %}"><button class="btn btn-danger">Excluir</button>
             </a>
 

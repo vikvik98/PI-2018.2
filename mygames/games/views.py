@@ -92,3 +92,47 @@ def carrinho(request):
 def remover_jogo(request, jogo_id):
     Jogo.objects.filter(id=jogo_id).delete()
     return redirect('home')
+
+def editar_jogo(request, jogo_id):
+    jogo = Jogo.objects.get(id=jogo_id)
+
+    if request.method == 'POST':
+        desenvolvedoraform = DesenvolvedoraForm(request.POST, instance=jogo.desenvolvedora)
+        publicadoraform = PublicadoraForm(request.POST, instance=jogo.publicadora)
+        jogoform = JogoForm(request.POST, instance=jogo)
+
+        if desenvolvedoraform.is_valid() and publicadoraform.is_valid() and jogoform.is_valid():
+            jogo_instance = jogoform.save(commit=False)
+            if jogo_instance.preco < 0:
+                raise ValidationError(
+                    "Não pode preço negativo"
+                )
+
+            if jogo_instance.quant_estoque < 0:
+                raise ValidationError(
+                    "Não pode estoque negativo"
+                )
+            desenvolvedora_instance = desenvolvedoraform.save()
+            publicadora_instance = publicadoraform.save()
+            jogo_instance.desenvolvedora = desenvolvedora_instance
+            jogo_instance.publicadora = publicadora_instance
+            jogo_instance.save()
+
+            return redirect('home')
+
+        else:
+            desenvolvedoraform = DesenvolvedoraForm(instance=jogo.desenvolvedora)
+            publicadoraform = PublicadoraForm(instance=jogo.publicadora)
+            jogoform = JogoForm(instance=jogo)
+
+            return render(request, 'add_jogo.html', {'desenvolvedoraform': desenvolvedoraform,
+                                                     'publicadoraform': publicadoraform,
+                                                     'jogoform': jogoform})
+    else:
+        desenvolvedoraform = DesenvolvedoraForm(instance=jogo.desenvolvedora)
+        publicadoraform = PublicadoraForm(instance=jogo.publicadora)
+        jogoform = JogoForm(instance=jogo)
+
+        return render(request, 'add_jogo.html', {'desenvolvedoraform': desenvolvedoraform,
+                                                 'publicadoraform': publicadoraform,
+                                                 'jogoform': jogoform})

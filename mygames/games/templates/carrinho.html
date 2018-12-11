@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 align="center">Jogos</h1>
+    {% for jogo in jogos %}
+    <ul>
+        <li> <a href="{% url 'jogo' jogo.id %}">{{jogo.nome}}</a>
+
+        </li>
+
+    </ul>
+    {% endfor %}
+
+    <a href="{% url 'add_jogo' %}">Adicionar Jogo</a>
+{% endblock %}

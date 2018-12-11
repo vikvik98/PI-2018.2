@@ -63,3 +63,7 @@ def jogo(request, jogo_id):
     desenvolvedora = jogo.desenvolvedoras.all()[0]
     publicadora = jogo.publicadoras.all()[0]
     return render(request,'jogo.html',{'jogo':jogo, 'desenvolvedora':desenvolvedora, 'publicadora':publicadora})
+
+
+def carrinho(request):
+    pass

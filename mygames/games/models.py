@@ -33,5 +33,5 @@ class Publicacao_jogo(models.Model):
     data_publicacao = models.DateField()
 
 
-class Carrinho:
-    pass
+class Carrinho(models.Model):
+    jogos_carrinho = models.ForeignKey(Jogo, on_delete=models.CASCADE, related_name="jogos")

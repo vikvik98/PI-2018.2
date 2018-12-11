@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+
+    <form method="post">
+        {% csrf_token %}
+        <h1>Desenvolvedora:</h1>
+        {{ desenvolvedoraform }}
+        <h1>Publicadora:</h1>
+        {{ publicadoraform }}
+        <h1>Jogo:</h1>
+        {{ jogoform }}
+        <h1>Informações do desenvolvimento:</h1>
+        {{ desenvolvimentoform }}
+        <h1>Ano de publicação:</h1>
+        {{ publicacaoform }}
+
+        <input type="submit">
+
+    </form>
+
+{% endblock %}

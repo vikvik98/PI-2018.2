@@ -25,5 +25,8 @@ urlpatterns = [
     path('jogo/<int:jogo_id>/editar/', views.editar_jogo, name='editar_jogo'),
     path('carrinho/add<int:jogo_id>', views.add_carrinho, name = 'add_carrinho'),
     path('carrinho/', views.carrinho, name='carrinho'),
-    path('remover_jogo/<int:jogo_id>', views.remover_jogo, name='remover_jogo')
+    path('remover_jogo/<int:jogo_id>', views.remover_jogo, name='remover_jogo'),
+    path('filtro/mais_caro', views.filtro_mais_caro, name='filtro_mais_caro'),
+    path('filtro/mais_barato', views.filtro_mais_barato, name='filtro_mais_barato'),
+    path('filtro/alfabetico', views.filtro_alfabetico, name='filtro_alfabetico')
 ]

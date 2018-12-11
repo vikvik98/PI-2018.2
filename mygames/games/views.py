@@ -136,3 +136,15 @@ def editar_jogo(request, jogo_id):
         return render(request, 'add_jogo.html', {'desenvolvedoraform': desenvolvedoraform,
                                                  'publicadoraform': publicadoraform,
                                                  'jogoform': jogoform})
+
+def filtro_mais_caro(request):
+    jogos = Jogo.objects.order_by('-preco')
+    return render(request, 'home.html', {'jogos': jogos})
+
+def filtro_mais_barato(request):
+    jogos = Jogo.objects.order_by('preco')
+    return render(request, 'home.html', {'jogos': jogos})
+
+def filtro_alfabetico(request):
+    jogos = Jogo.objects.order_by('nome')
+    return render(request, 'home.html', {'jogos': jogos})

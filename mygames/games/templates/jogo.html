@@ -12,10 +12,13 @@
             <h6>Desenvolvedora: {{desenvolvedora.nome_desenvolvedora}}</h6>
             <h6>Publicadora: {{publicadora.nome_publicadora}}</h6>
             
-            <button class="btn btn-success">Comprar</button>
+            <a href="{% url 'add_carrinho' jogo.id %}">
+                <button class="btn btn-success">Comprar</button>
+            </a>
             <button class="btn btn-warning">Editar</button>
             <button class="btn btn-danger">Excluir</button>
         </div>
     </div>
 </div>
+
 {% endblock %}

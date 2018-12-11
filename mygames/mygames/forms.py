@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, forms
 
 from games.models import Desenvolvedora, Publicadora, Jogo
 
@@ -20,5 +20,6 @@ class JogoForm(ModelForm):
     class Meta:
         model = Jogo
         fields = ['nome','preco','quant_estoque','descricao']
+
 
 

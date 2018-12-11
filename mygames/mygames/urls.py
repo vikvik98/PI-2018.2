@@ -22,11 +22,17 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('add_jogo/', views.add_jogo, name='add_jogo'),
     path('jogo/<int:jogo_id>', views.jogo, name='jogo'),
+    path('jogo/<int:jogo_id>/editar/', views.editar_jogo, name='editar_jogo'),
     path('carrinho/add<int:jogo_id>', views.add_carrinho, name = 'add_carrinho'),
+
     path('carrinho/',views.carrinho,name='carrinho'),
     path('remover_jogo/<int:jogo_id>', views.remover_jogo, name='remover_jogo'),
     path('remover_jogo_carrinho/<int:jogo_id>', views.remover_jogo_carrinho, name='remover_jogo_carrinho'),
     path('finalizar_compra', views.finalizar_compra, name = 'finalizar_compra'),
-    path('meus_jogos', views.meus_jogos, name='meus_jogos')
+    path('meus_jogos', views.meus_jogos, name='meus_jogos'),
+
+
+    path('carrinho/', views.carrinho, name='carrinho'),
+    path('remover_jogo/<int:jogo_id>', views.remover_jogo, name='remover_jogo')
 
 ]

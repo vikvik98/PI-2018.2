@@ -1,12 +1,12 @@
 from django.forms import ModelForm
 
-from games.models import Desenvolvedora, Publicadora, Jogo, Desenvolvimento_jogo, Publicacao_jogo
+from games.models import Desenvolvedora, Publicadora, Jogo
 
 
 class DesenvolvedoraForm(ModelForm):
     class Meta:
         model = Desenvolvedora
-        fields = ['nome','fundacao']
+        fields = ['nome']
 
 
 
@@ -22,13 +22,3 @@ class JogoForm(ModelForm):
         fields = ['nome','preco','quant_estoque']
 
 
-class DesenvolvimentoForm(ModelForm):
-    class Meta:
-        model = Desenvolvimento_jogo
-        fields = ['inicio_desenvolvimento', 'termino_desenvolvimento']
-
-
-class PublicacaoForm(ModelForm):
-    class Meta:
-        model = Publicacao_jogo
-        fields = ['data_publicacao']

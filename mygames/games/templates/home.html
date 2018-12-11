@@ -2,10 +2,12 @@
 {% block body %}
     <h1 align="center">Jogos</h1>
     {% for jogo in jogos %}
-    <li>
-        <ol>Nome: {{jogo.nome}}</ol>
+    <ul>
+        <li> <a href="{% url 'jogo' jogo.id %}">{{jogo.nome}}</a>
 
-    </li>
+        </li>
+
+    </ul>
     {% endfor %}
 
     <a href="{% url 'add_jogo' %}">Adicionar Jogo</a>

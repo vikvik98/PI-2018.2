@@ -19,7 +19,7 @@ class PublicadoraForm(ModelForm):
 class JogoForm(ModelForm):
     class Meta:
         model = Jogo
-        fields = ['nome']
+        fields = ['nome','preco','quant_estoque']
 
 
 class DesenvolvimentoForm(ModelForm):

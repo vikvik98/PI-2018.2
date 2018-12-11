@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 
-from games.models import Jogo
+from games.models import Jogo, Carrinho
 from mygames.forms import DesenvolvedoraForm, PublicadoraForm, JogoForm
 
 
 def home(request):
+    if not Carrinho.objects.all():
+        carrinho = Carrinho()
+        carrinho.save()
     jogos = Jogo.objects.all()
     return render(request, 'home.html', {'jogos': jogos})
 
@@ -44,11 +47,16 @@ def add_jogo(request):
 
 
 def jogo(request, jogo_id):
+    carrinho = Carrinho.objects.all()[0]
     jogo = Jogo.objects.get(id=jogo_id)
     desenvolvedora = jogo.desenvolvedora
     publicadora = jogo.publicadora
-    return render(request, 'jogo.html', {'jogo': jogo, 'desenvolvedora': desenvolvedora, 'publicadora': publicadora})
+    return render(request, 'jogo.html', {'jogo': jogo, 'desenvolvedora': desenvolvedora, 'publicadora': publicadora,'carrinho': carrinho})
 
 
-def carrinho(request):
-    pass
+def add_carrinho(request, jogo_id):
+    carinho = Carrinho.objects.get(finalizado = False)
+    jogo = Jogo.objects.get(id = jogo_id)
+    carinho.jogos_carrinho.add(jogo)
+    return redirect(home)
+

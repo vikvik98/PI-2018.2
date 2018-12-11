@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('add_jogo/', views.add_jogo, name='add_jogo'),
     path('jogo/<int:jogo_id>', views.jogo, name='jogo'),
-    path('carrinho/',views.carrinho,name='carrinho')
+    path('carrinho/add<int:jogo_id>', views.add_carrinho, name = 'add_carrinho'),
+    #path('carrinho/',views.add_carrinho,name='carrinho')
 ]

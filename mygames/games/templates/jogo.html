@@ -6,7 +6,7 @@
 
 <h2>Publicadora: {{publicadora.nome_publicadora}}</h2>
 
-<a href="{% url 'carrinho' %}"></a><button>Comprar</button>
+<a href="{% url 'add_carrinho' jogo.id %}"><button>Comprar</button></a>
 <button>Editar</button>
 <button>Excluir</button>
 {% endblock %}

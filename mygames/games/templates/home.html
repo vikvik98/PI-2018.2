@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
 
-
 <div class="col-lg-12">
     <div class="row">
         {% for jogo in jogos %}
@@ -12,17 +11,13 @@
                 <h4 class="card-title">
                     <a href="{% url 'jogo' jogo.id %}">{{jogo.nome}}</a>
                 </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <h5>R$ {{jogo.preco}}</h5>
+                <p class="card-text">Um jogo muito loco</p>
                 </div>
             </div>
         </div> 
         {% endfor %}
     </div>
 </div>
-
 
 {% endblock %}

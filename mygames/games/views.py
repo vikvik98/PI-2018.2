@@ -6,15 +6,21 @@ from mygames import forms
 from mygames.forms import DesenvolvedoraForm, PublicadoraForm, JogoForm
 
 
-def home(request):
-    if not Carrinho.objects.all():
+
+def verificar_carrinho():
+    try :
+        Carrinho.objects.get(finalizado = False)
+    except Carrinho.DoesNotExist:
         carrinho = Carrinho()
         carrinho.save()
+
+def home(request):
     jogos = Jogo.objects.all()
     return render(request, 'home.html', {'jogos': jogos})
 
 
 def add_jogo(request):
+    verificar_carrinho()
     if request.method == 'POST':
         desenvolvedoraform = DesenvolvedoraForm(request.POST)
         publicadoraform = PublicadoraForm(request.POST)
@@ -85,6 +91,7 @@ def add_carrinho(request, jogo_id):
 
 
 def carrinho(request):
+    verificar_carrinho()
     carrinho = Carrinho.objects.get(finalizado=False)
     jogos_carrinho = carrinho.jogos_carrinho.all()
     return render(request, 'carrinho.html', {'jogos_carrinho': jogos_carrinho})
@@ -95,7 +102,23 @@ def remover_jogo(request, jogo_id):
 
 
 def remover_jogo_carrinho(request, jogo_id):
+    verificar_carrinho()
     carrinho = Carrinho.objects.get(finalizado=False)
     jogo = Jogo.objects.get(id=jogo_id)
     carrinho.jogos_carrinho.remove(jogo)
     return redirect('carrinho')
+
+def finalizar_compra(request):
+    verificar_carrinho()
+    carrinho = Carrinho.objects.get(finalizado=False)
+    carrinho.finalizado = True
+    carrinho.save()
+    return redirect('meus_jogos')
+
+def meus_jogos(request):
+    jogos = []
+    carrinhos_finalizados = Carrinho.objects.filter(finalizado = True)
+    for carrinho_finalizado in carrinhos_finalizados:
+        for jogo in carrinho_finalizado.jogos_carrinho.all():
+            jogos.append(jogo)
+    return render(request,'meus_jogos.html', {'jogos':jogos})

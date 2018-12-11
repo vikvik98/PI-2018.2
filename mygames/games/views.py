@@ -92,3 +92,10 @@ def carrinho(request):
 def remover_jogo(request, jogo_id):
     Jogo.objects.filter(id=jogo_id).delete()
     return redirect('home')
+
+
+def remover_jogo_carrinho(request, jogo_id):
+    carrinho = Carrinho.objects.get(finalizado=False)
+    jogo = Jogo.objects.filter(id=jogo_id)
+    carrinho.jogos_carrinho.remove(jogo)
+    return redirect('home')

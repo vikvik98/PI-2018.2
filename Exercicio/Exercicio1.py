@@ -26,7 +26,28 @@ import wikipedia
 # print(response)
 
 
-#API 3
+#Api 3
+
+#Api para criar eventos
+
+# url = 'https://www.eventbriteapi.com/v3/users/me/?token=VWN3JXD2QXINHSRACINR'
+#
+# response = requests.get(url).json()
+#
+# print(response['emails'][0]['email'])
+
+
+#API 4
+
+# Api do firebase usando um post
+
+# url = 'https://projeto-scrum.firebaseio.com/message_list.json'
+# dadosJson  = {"user_id" : "jack", "text" : "Ahoy!"}
+#
+# response = requests.post(url,json=dadosJson)
+#
+# print(response)
+
 
 
 

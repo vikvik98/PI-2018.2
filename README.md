@@ -20,3 +20,10 @@ Desejo continuar com o crescimento acadêmico após a conclusão do curso e em p
 
 ### Expectativas para a disciplina:
 Aprender como esse universo de desenvolvimento para web/internet.
+
+
+# APIs
+### Nome: 
+* WIKIPEDIA API = https://en.wikipedia.org/w/api.php
+* LAST.FM = https://www.last.fm/api
+* Firebase = https://console.firebase.google.com/project/projeto-scrum/database/projeto-scrum/data

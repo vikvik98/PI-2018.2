@@ -19,7 +19,7 @@ import wikipedia
 
 
 # api_key = '2573b6924d7f594eb61735a7dde4bb40'
-# url = 'http://ws.audioscrobbler.com/2.0/?method=album.search&album=shape of you&api_key={0}&format=json'.format(api_key)
+# url = 'http://ws.audioscrobbler.com/2.0/?method=album.search&album=Alivio imediato&api_key={0}&format=json'.format(api_key)
 #
 # response = requests.get(url).json()
 #

@@ -26,18 +26,7 @@ import wikipedia
 # print(response)
 
 
-#Api 3
-
-#Api para criar eventos
-
-# url = 'https://www.eventbriteapi.com/v3/users/me/?token=VWN3JXD2QXINHSRACINR'
-#
-# response = requests.get(url).json()
-#
-# print(response['emails'][0]['email'])
-
-
-#API 4
+#API 3
 
 # Api do firebase usando um post
 
